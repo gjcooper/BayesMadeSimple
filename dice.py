@@ -20,7 +20,9 @@ class Dice(Suite):
         data: integer die roll
         """
         # write this method
-        return 1
+        if data > hypo:
+            return 0
+        return 1/hypo
 
 
 def main():
