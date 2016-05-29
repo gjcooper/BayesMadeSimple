@@ -47,15 +47,16 @@ class Euro(thinkbayes.Suite):
 def main():
     suite = Euro(range(0, 101))
     
-    suite.Update('H')
-    suite.Update('H')
-    suite.Update('T')
+    obs = 'H'*140 + 'T'*110
+    for o in obs:
+        suite.Update(o)
 
     thinkplot.Pdf(suite)
     thinkplot.Show(xlabel='x',
                    ylabel='Probability',
                    legend=False)
 
+    print(suite.Mean(), suite.MaximumLikelihood(), suite.CredibleInterval(90))
 
     
 
