@@ -51,5 +51,9 @@ def main():
                    ylabel='Probability',
                    legend=False)
 
+    print(suite.Mean())
+    print(suite.MaximumLikelihood())
+    print(suite.CredibleInterval(90))
+
 if __name__ == '__main__':
     main()
