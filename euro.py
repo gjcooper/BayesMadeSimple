@@ -37,18 +37,26 @@ class Euro(thinkbayes.Suite):
         data: string 'H' or 'T'
         """
         # fill this in!
-        return 1
+        p = hypo/100
+        if data == 'H':
+            return p
+        else:
+            return 1-p
 
 
 def main():
     suite = Euro(range(0, 101))
     
     suite.Update('H')
+    suite.Update('H')
+    suite.Update('T')
 
     thinkplot.Pdf(suite)
     thinkplot.Show(xlabel='x',
                    ylabel='Probability',
                    legend=False)
+
+
     
 
 if __name__ == '__main__':
