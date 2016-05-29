@@ -66,7 +66,7 @@ def main():
     fair.Set(50, 1)
 
     bias = Euro()
-    for x in range(30, 71):
+    for x in range(51, 101):
         if x != 50:
             bias.Set(x, 1)
     bias.Normalize()
