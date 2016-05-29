@@ -24,7 +24,9 @@ class Train(thinkbayes.Suite):
         data: the number of the observed train
         """
         # fill this in!
-        return 1
+        if data > hypo:
+            return 0
+        return 1/hypo
 
 
 
@@ -32,7 +34,7 @@ def main():
     hypos = range(100, 1001)
     suite = Train(hypos)
 
-    suite.Update(321)
+    suite.Update(50)
 
     thinkplot.PrePlot(1)
     thinkplot.Pmf(suite)
@@ -40,6 +42,14 @@ def main():
                    ylabel='Probability',
                    legend=False)
 
+    for train in [13, 45, 89, 22, 33, 35]:
+        suite.Update(train)
+
+    thinkplot.PrePlot(1)
+    thinkplot.Pmf(suite)
+    thinkplot.Show(xlabel='Number of trains',
+                   ylabel='Probability',
+                   legend=False)
 
 if __name__ == '__main__':
     main()
