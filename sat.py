@@ -161,14 +161,11 @@ def PmfProbGreater(pmf1, pmf2):
         float probability
     """
     total = 0.0
-    runsum = 0.0
-    for x1, p1 in pmf1.Items():
-        for x2, p2 in pmf2.Items():
-            if p1 < p2:
-                total += 1
-            runsum += 1
+    for _ in range(10000):
+        if pmf1.Random() > pmf2.Random():
+            total += 1
 
-    return total/runsum
+    return total/10000
 
 
 def main():
