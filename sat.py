@@ -163,8 +163,8 @@ def PmfProbGreater(pmf1, pmf2):
     total = 0.0
     for x1, p1 in pmf1.Items():
         for x2, p2 in pmf2.Items():
-            # Fill this in!
-            pass
+            if x1 > x2:
+                total += p1 * p2
 
     return total
 
